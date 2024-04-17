@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    var emojis: [Emoji] = EmojiProvider.allEmojis()
+    @State private var emojis: [Emoji] = EmojiProvider.allEmojis()
     
     @State private var searchText: String = ""
     @State private var isRedacted: Bool = true
@@ -37,6 +37,16 @@ struct ContentView: View {
             }
             .navigationTitle("Emoji")
             .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    isRedacted = false
+                }
+            }
+            .refreshable {
+                isRedacted = true
+                
+                let newRow = EmojiProvider.allEmojis().randomElement()
+                emojis.insert(newRow ?? Emoji(emoji: "sss", name: "sss", description: "sss"), at: 0)
+                
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     isRedacted = false
                 }

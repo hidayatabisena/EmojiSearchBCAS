@@ -16,6 +16,10 @@ struct Emoji: Identifiable {
 
 // MARK: - DUMMY DATA
 struct EmojiProvider {
+    static func randomEmoji() -> Emoji? {
+        return allEmojis().randomElement()
+    }
+    
     static func allEmojis() -> [Emoji] {
         let EmojiData = [
             Emoji(

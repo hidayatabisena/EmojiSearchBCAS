@@ -12,13 +12,23 @@ struct HeaderView: View {
     @State private var isAnimating: Bool = false
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .bottom) {
             RandomColor.bgView()
             
             Text(emoji.emoji)
                 .font(.system(size: 225))
                 .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.5), radius: 8, x: 6, y: 8)
                 .scaleEffect(isAnimating ? 1.0 : 0.6)
+            
+            HStack {
+                Text(emoji.name)
+                Spacer()
+                Text(emoji.emoji)
+            }
+            .font(.largeTitle)
+            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity)
+            .padding()
+            .background(.purple.opacity(0.5))
         }
         .frame(height: 440)
         .onAppear {
