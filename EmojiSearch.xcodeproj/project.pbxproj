@@ -14,6 +14,8 @@
 		53433BA42BCF6FA3008E06DD /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53433BA32BCF6FA3008E06DD /* Emoji.swift */; };
 		53433BA72BCF729A008E06DD /* EmojiRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53433BA62BCF729A008E06DD /* EmojiRow.swift */; };
 		53433BAA2BCF75C2008E06DD /* RandomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53433BA92BCF75C2008E06DD /* RandomColor.swift */; };
+		53433BAD2BCF840D008E06DD /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53433BAC2BCF840D008E06DD /* HeaderView.swift */; };
+		53433BAF2BCF8664008E06DD /* EmojiDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53433BAE2BCF8664008E06DD /* EmojiDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		53433BA32BCF6FA3008E06DD /* Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
 		53433BA62BCF729A008E06DD /* EmojiRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiRow.swift; sourceTree = "<group>"; };
 		53433BA92BCF75C2008E06DD /* RandomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomColor.swift; sourceTree = "<group>"; };
+		53433BAC2BCF840D008E06DD /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		53433BAE2BCF8664008E06DD /* EmojiDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +90,8 @@
 		53433BA02BCF6CCB008E06DD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				53433BAB2BCF83C0008E06DD /* Home */,
 				53433BA52BCF7283008E06DD /* Component */,
-				53433B932BCF6345008E06DD /* ContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -122,6 +126,16 @@
 				53433BA92BCF75C2008E06DD /* RandomColor.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		53433BAB2BCF83C0008E06DD /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				53433B932BCF6345008E06DD /* ContentView.swift */,
+				53433BAC2BCF840D008E06DD /* HeaderView.swift */,
+				53433BAE2BCF8664008E06DD /* EmojiDetail.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +209,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				53433BA42BCF6FA3008E06DD /* Emoji.swift in Sources */,
+				53433BAD2BCF840D008E06DD /* HeaderView.swift in Sources */,
+				53433BAF2BCF8664008E06DD /* EmojiDetail.swift in Sources */,
 				53433BAA2BCF75C2008E06DD /* RandomColor.swift in Sources */,
 				53433BA72BCF729A008E06DD /* EmojiRow.swift in Sources */,
 				53433B942BCF6345008E06DD /* ContentView.swift in Sources */,

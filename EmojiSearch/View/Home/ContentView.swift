@@ -11,6 +11,7 @@ struct ContentView: View {
     var emojis: [Emoji] = EmojiProvider.allEmojis()
     
     @State private var searchText: String = ""
+    @State private var isRedacted: Bool = true
     
     var emojiSearchResults: [Emoji] {
         guard !searchText.isEmpty else { return emojis }
@@ -23,9 +24,23 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List(emojiSearchResults) { emoji in
-                EmojiRow(emoji: emoji)
+                NavigationLink {
+                    EmojiDetail(emoji: emoji)
+                } label: {
+                    if isRedacted {
+                        EmojiRow(emoji: emoji)
+                            .redacted(reason: .placeholder)
+                    } else {
+                        EmojiRow(emoji: emoji)
+                    }
+                }
             }
             .navigationTitle("Emoji")
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    isRedacted = false
+                }
+            }
             .searchable(
                 text: $searchText,
                 placement: .navigationBarDrawer(displayMode: .always),
