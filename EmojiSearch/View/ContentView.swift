@@ -8,18 +8,35 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "person")
-                .resizable()
-                .scaledToFit()
-                .frame(height: 200)
-                .foregroundStyle(.purple)
-            
-            Text("Hello, iOS Dev!")
-                .fontWeight(.bold)
+    var emojis: [Emoji] = EmojiProvider.allEmojis()
+    
+    @State private var searchText: String = ""
+    
+    var emojiSearchResults: [Emoji] {
+        guard !searchText.isEmpty else { return emojis }
+        
+        return emojis.filter { emoji in
+            emoji.name.lowercased().contains(searchText.lowercased())
         }
-        .padding()
+    }
+    
+    var body: some View {
+        NavigationStack {
+            List(emojiSearchResults) { emoji in
+                EmojiRow(emoji: emoji)
+            }
+            .navigationTitle("Emoji")
+            .searchable(
+                text: $searchText,
+                placement: .navigationBarDrawer(displayMode: .always),
+                prompt: "What emoji's that you're looking for?"
+            )
+            .overlay {
+                if emojiSearchResults.isEmpty {
+                    ContentUnavailableView.search(text: searchText)
+                }
+            }
+        }
     }
 }
 
